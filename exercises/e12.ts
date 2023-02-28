@@ -2,7 +2,22 @@
 // Return the sum of all moons for all planets
 // Return example: 42
 
-export const allPlanetsMoonsCount = (data) => {};
+import { Asteroid, Planet } from '../data/data';
+
+interface Data {
+  planets: Planet[];
+  asteroids: Asteroid[];
+}
+
+export const allPlanetsMoonsCount = (data: Data) => {
+  let totalMoons: number = 0;
+  data.planets.forEach((planet: Planet) => {
+    if (planet.moons) {
+      totalMoons += planet.moons.length;
+    }
+  });
+  return totalMoons;
+};
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-12"

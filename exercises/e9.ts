@@ -2,7 +2,16 @@
 // Return the data object of the planet "Earth"
 // Return example: { key1: value1, key2: value2, ... , keyN: valueN }
 
-export let findEarthData = (data) => {};
+import { Asteroid, Planet } from '../data/data';
+
+interface Data {
+  planets: Planet[];
+  asteroids: Asteroid[];
+}
+
+export let findEarthData = (data: Data) => {
+  return data.planets.find((planet: Planet) => planet.name === 'Earth');
+};
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-9"

@@ -2,7 +2,26 @@
 // Return a given asteroid object of data
 // make sure that you destructure your parameters
 
-export function getAsteroidDataByName({ allData, asteroidName }) {}
+import { Asteroid, Planet } from '../data/data';
+
+interface Data {
+  planets: Planet[];
+  asteroids: Asteroid[];
+}
+
+interface GetAsteroidName {
+  allData: Data;
+  asteroidName: string;
+}
+
+export function getAsteroidDataByName({
+  allData,
+  asteroidName,
+}: GetAsteroidName) {
+  return allData.asteroids.find(
+    (asteroid: Asteroid) => asteroid.name === asteroidName
+  );
+}
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-10"
